@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    tools{
+        nodejs '19.8.1'
+        }
+    stages{
+        stage ('Clone Repository'){
+            steps { 
+                git 'https://github.com/kibetstephanie/gallery.git'
+              }
+        }
+        
+        stage ('Installing Dependancies'){
+            steps{
+                sh 'npm install'
+            }
+        }
+        stage('Deploy to Heroku') {
+            steps {
+             withCredentials([usernameColonPassword(credentialsId: 'gallery', variable: 'HEROKU_CREDENTIALS' )]){
+              sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/pure-beach-67815.git master'
+            }
+      }
+    } 
+    }
+}
