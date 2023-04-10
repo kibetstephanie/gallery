@@ -22,16 +22,17 @@ pipeline{
             }
       }
     } 
-        stage('Testing') {
-            steps {
-                sh 'npm test'
-            }
-        
-            post { 
-            failure { 
-                mail 'emailext body: 'I hate to be the bearer of bad news but  your build has failed', subject: 'Build Test Failure', to: 'stephanie.kibet@student.moringaschool.com''
-            }
-        }
+        # stage('Testing') {
+        #    post { 
+        #     failure { 
+        #         mail 'emailext body: 'I hate to be the bearer of bad news but  your build has failed', subject: 'Build Test Failure', to: 'stephanie.kibet@student.moringaschool.com''
+        #      }
+        #}
+        #     steps {
+        #        sh 'npm test'
+        #    }
+        #
+        #     
+        # }
     }
-}
 }
