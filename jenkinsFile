@@ -39,7 +39,7 @@ pipeline{
 
         stage('Slack Bot Notification'){
             steps{
-                slackSend channel: 'stephanie_ip1', color: '#a7ca55', message: 'Hooray!!!! Your application ${env.JOB_NAME}  on Jenkins has successfully deployed after ${env.BUILD_NUMBER} tries. Congratulations. ', teamDomain: 'moringaclassroom', tokenCredentialId: 'slackip1'
+                slackSend channel: 'stephanie_ip1', color: '#a7ca55', message: 'Hooray!!!! Your application on Jenkins has successfully deployed. Congratulations. ', teamDomain: 'moringaclassroom', tokenCredentialId: 'slackip1'
             }
         }
     
