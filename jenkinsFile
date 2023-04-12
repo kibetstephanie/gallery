@@ -10,7 +10,7 @@ pipeline{
               }
         }
         
-        stage ('Installing Dependancies'){
+        stage ('Building'){
             steps{
                 sh 'npm install'
             }
@@ -36,6 +36,12 @@ pipeline{
             }
       }
     } 
+
+        stage('Slack Bot Notification'){
+            steps{
+                slackSend channel: 'stephanie_ip1', color: '#a7ca55', message: 'Hooray!!!! Your application ${env.JOB_NAME}  on Jenkins has successfully deployed after ${env.BUILD_NUMBER} tries. Congratulations. Check this link out to see it: (<${env.BUILD_URL}|Open>)', teamDomain: 'moringaschool', tokenCredentialId: 'stephanie-slack-for-ip1'
+            }
+        }
     
     }
 }
