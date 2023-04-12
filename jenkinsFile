@@ -15,6 +15,19 @@ pipeline{
                 sh 'npm install'
             }
         }
+
+        stage ('Testing'){
+            steps{
+                sh 'npm test'
+            }
+        
+            post{
+                failure{
+                    mail bcc: '', body: 'We hate to be the bearer of bad news but the build on your app has failed.', cc: '', from: '', replyTo: '', subject: 'Build Status: Failure', to: 'stephanie.kibet@student.moringaschool.com, stephkiby@gmail.com, '
+                    }
+            }
+        }
+
         stage('Deploy to Heroku') {
             steps {
              withCredentials([usernameColonPassword(credentialsId: 'gallery', variable: 'HEROKU_CREDENTIALS' )]){
