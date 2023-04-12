@@ -18,7 +18,7 @@ pipeline{
         stage('Deploy to Heroku') {
             steps {
              withCredentials([usernameColonPassword(credentialsId: 'gallery', variable: 'HEROKU_CREDENTIALS' )]){
-              sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/gallery-sckibet.git'
+              sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/hidden-atoll-53514.git'
               
             }
       }
