@@ -39,7 +39,7 @@ pipeline{
 
         stage('Slack Bot Notification'){
             steps{
-                slackSend channel: 'stephanie_ip1', color: '#a7ca55', message: 'Hooray!!!! Your application  with ID number:'${env.BUILD_NUMBER}' on Jenkins has successfully deployed. Congratulations. Check it out on this link: '(<${env.BUILD_URL}|Open>)'', teamDomain: 'moringaclassroom', tokenCredentialId: 'slackip1'
+                slackSend channel: 'stephanie_ip1', color: '#a7ca55', message: 'Hooray!!!! Your application  with ID number:'${env.BUILD_NUMBER}' on Jenkins has successfully deployed. Congratulations. Check it out on this link: (https://dashboard.heroku.com/apps/hidden-atoll-53514)', teamDomain: 'moringaclassroom', tokenCredentialId: 'slackip1'
             }
         }
     
