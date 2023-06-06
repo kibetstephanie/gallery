@@ -14,11 +14,7 @@ Learning how to Intergrate and Automate a basic pipeline
 ## Lessons Learned
 
 * Creating a basic pipeline
-* Application Testing using:
-
-```bash
-  npm run test
-```
+* Application Testing using `npm run tests`
 * Pipeline Automation and Configuration using Jenkins
 * Application deployment to Heroku
 * Slack Integration using Jenkins
